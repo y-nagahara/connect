@@ -19,6 +19,8 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+    
+// ユーザー登録のためのcontroller
 
     use RegistersUsers;
 
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
