@@ -34,7 +34,7 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $followings = $user->followings()->paginate(10);
-        $pictures = $user->feed_pictures()->orderBy('created_at', 'desc')->paginate(10);
+        $pictures = $user->pictures()->orderBy('created_at', 'desc')->paginate(10);
         $data = [
             'user' => $user,
             'users' => $followings,
@@ -51,7 +51,7 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $followers = $user->followers()->paginate(10);
-        $pictures = $user->feed_pictures()->orderBy('created_at', 'desc')->paginate(10);
+        $pictures = $user->pictures()->orderBy('created_at', 'desc')->paginate(10);
         
         $data = [
             'user' => $user,
@@ -69,7 +69,7 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $favorites = $user->favoritings()->paginate(10);
-        $pictures = $user->feed_pictures()->orderBy('created_at', 'desc')->paginate(10);
+        $pictures = $user->pictures()->orderBy('created_at', 'desc')->paginate(10);
         
         
         $data = [
@@ -88,16 +88,44 @@ class UsersController extends Controller
      public function comments($id)
     {
         $user = User::find($id);
-        $comments = $user->comments()->paginate(10);
+        $comments = $user->comments()->orderBy('created_at', 'desc')->paginate(10);
+        $pictures = $user->pictures()->orderBy('created_at', 'desc')->paginate(10);
 
         $data = [
             'user' => $user,
             'comments' => $comments,
+            'pictures' => $pictures,
         ];
 
         $data += $this->counts($user);
 
         return view('users.comments', $data);
+    }
+    
+
+    public function introduce($id)
+    {
+        $user = User::find($id);
+        $pictures = $user->feed_pictures()->orderBy('created_at', 'desc')->paginate(10);
+        $followers = $user->followers()->paginate(10);
+        $followings = $user->followings()->paginate(10);
+        
+        $data = [
+            'user' => $user,
+            'pictures' => $pictures,
+            'followings'=> $followings,
+            'followers' => $followers,
+        ];
+                
+        $data += $this->counts($user);
+        return view('users.mypage',$data);
+
+
+    }
+     public function delete($id)
+    {
+       
+
     }
 
 }

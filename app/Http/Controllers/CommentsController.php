@@ -34,7 +34,7 @@ class CommentsController extends Controller
             'comment' => $comment,
         ]);
     }
-    
+
     
     public function destroy($id)
     {

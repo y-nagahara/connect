@@ -10,12 +10,19 @@
                 </div>
             </div>
         <!--ユーザの投稿を入れたい-->
+                <br><br>
+                @if (count($pictures) > 0)
+                    @include('pictures.pictures', ['pictures' => $pictures])
+                @endif
         
         </aside>
         <div class="col-sm-8">
             @include('navtabs.navtabs', ['user' => $user])
 
-        <!--お気に入りした投稿の表示-->
+        <!--コメントした投稿の表示-->
+            @if (count($pictures) > 0)
+                @include('pictures.pictures', ['pictures' => $comments])
+            @endif
           　
         </div>
     </div>

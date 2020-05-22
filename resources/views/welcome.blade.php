@@ -12,7 +12,9 @@
                 @if (Auth::id() == $user->id)
                     {!! Form::open(['route' => 'pictures.store']) !!}
                         <div class="form-group">
+                            <label for="name">Picture name</label>
                             {!! Form::textarea('picture_name', old('picture_name'), ['class' => 'form-control', 'rows' => '1']) !!}
+                            <label for="url">Picture URL</label>
                             {!! Form::textarea('picture_url', old('picture_url'), ['class' => 'form-control', 'rows' => '1']) !!}
                             {!! Form::submit('Post', ['class' => 'btn btn-dark btn-block']) !!}
                         </div>

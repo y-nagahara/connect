@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','is_deleted',
+        'name', 'email', 'password','deleted_at',
     ];
 
     /**
@@ -143,5 +143,7 @@ class User extends Authenticatable
         // UserはCommentを複数持てる(１対多)
         return $this->hasMany(Comment::class);
     }
+    
+
 }
 

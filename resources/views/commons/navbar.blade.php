@@ -12,7 +12,7 @@
                     @if(Auth::check())
                         <!--仮で設置-->
                         <li class="nav-item">{!! link_to_route('users.show','mypost',['id' => Auth::id()],['class' => 'nav-link']) !!}</li>
-                        <li class="nav-item"><a href="#" class="nav-link">mypage</a></li>
+                        <li class="nav-item">{!! link_to_route('users.mypage','mypage',['id' => Auth::id()],['class' => 'nav-link']) !!}</li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
                             <ul class="dropdown-menu dropdown-menu-right">

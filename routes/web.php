@@ -22,6 +22,8 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
+Route::get('delete', 'UsersController@delete')->name('delete');
+
 // ユーザ機能
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
@@ -46,9 +48,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('unfavorite', 'FavoritesController@destroy')->name('favorites.unfavorite');
         
     });
-    
+    Route::get('mypage/{id}','UsersController@introduce')->name('users.mypage');
+   
     Route::get('pictures/{id}', 'PicturesController@show')->name('pictures.deteils');
-
-
-
+ 
 });

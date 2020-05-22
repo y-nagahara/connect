@@ -26,10 +26,12 @@ class PicturesController extends Controller
     {
         $picture = \App\Picture::find($id);
         $user =\Auth::user();
+        $comment =$picture->comment();
 
         return view('pictures.details', [
             'user' => $user,
             'picture' => $picture,
+            'comment' => $comment,
         ]);
     }
     
@@ -59,4 +61,5 @@ class PicturesController extends Controller
         
         return back();
     }
+     
 }

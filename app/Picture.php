@@ -21,4 +21,17 @@ class Picture extends Model
     public function comment(){
         return $this->hasMany(Comment::class);    
     }
+    
+    //     public function feed_comments()
+    // {
+    //     $comment_picture_ids = $this->commentings()->pluck('pictures.id')->toArray();
+    //     $comment_picture_ids[] = $this->id;
+    //     return Comment::whereIn('picture_id', $comment_picture_ids);
+    // }
+    
+//         public function commentings()
+//     {
+//         // commentsテーブルのpicture_idとcommentを返す
+//         return $this->belongsToMany(Picture::class, 'comments', 'picture_id', 'comment')->withTimestamps();
+//     }
 }
