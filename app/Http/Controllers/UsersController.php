@@ -118,14 +118,19 @@ class UsersController extends Controller
         ];
                 
         $data += $this->counts($user);
+        
+        if(\Auth::id() === $user->id){
         return view('users.mypage',$data);
+        }
+        else{
+            return('/');
+        }
 
 
     }
-     public function delete($id)
-    {
-       
-
+     public function delete()
+    {   
+        return view('delete.delete');
     }
 
 }

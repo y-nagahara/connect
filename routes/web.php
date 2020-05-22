@@ -22,7 +22,8 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
-Route::get('delete', 'UsersController@delete')->name('delete');
+Route::get('delete','UsersController@delete')->name('delete');
+Route::get('delete','AccountController@deleteData')->name('user.delete');
 
 // ユーザ機能
 Route::group(['middleware' => ['auth']], function () {
