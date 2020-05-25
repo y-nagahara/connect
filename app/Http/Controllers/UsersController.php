@@ -128,9 +128,5 @@ class UsersController extends Controller
 
 
     }
-     public function delete()
-    {   
-        return view('delete.delete');
-    }
-
+    
 }

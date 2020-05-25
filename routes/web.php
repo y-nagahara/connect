@@ -22,8 +22,8 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
-Route::get('delete','UsersController@delete')->name('delete');
-Route::get('delete','AccountController@deleteData')->name('user.delete');
+Route::get('/quit' , 'AccountController@index')->name('quit');   
+Route::post('{id}/quit', 'AccountController@destroy')->name('quit.delete'); // 退会処理(退会確認画面でボタンを押した後の処理
 
 // ユーザ機能
 Route::group(['middleware' => ['auth']], function () {

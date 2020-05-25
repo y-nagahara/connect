@@ -34,7 +34,8 @@
                 </tr>
             </table>
        　<!--退会ボタンをつける-->
-       　 <!--!! link_to_route('delete', '退会',[],['class' => 'btn btn-lg btn-dark rounded-pill']) !!}-->
+       　{!!  link_to_route('quit', '退会')  !!}
+
         </div>
     </div>
 @endsection

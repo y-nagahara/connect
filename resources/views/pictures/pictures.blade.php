@@ -10,7 +10,6 @@
                     {!! link_to_route('pictures.deteils', $picture->picture_name, ['id' => $picture->id]) !!}
                 </div>
 
-                    
                 <div>
                     @if(Auth::id() == $picture->user_id)
                         {!! Form::open(['route' =>['pictures.destroy',$picture->id],'method' => 'delete']) !!}
