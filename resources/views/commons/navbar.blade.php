@@ -15,7 +15,7 @@
                         <li class="nav-item">{!! link_to_route('users.mypage','mypage',['id' => Auth::id()],['class' => 'nav-link']) !!}</li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}</a>
-                            <ul class="dropdown-menu dropdown-menu-right">
+                            <ul class="dropdown-menu dropdown-menu-right ">
                                 <!--仮で設置-->
                                 <li class="dropdown-item">{!! link_to_route('users.index','ユーザー一覧',[],['class' => 'nav-dark']) !!}</li>
                                 <li class="dropdown-item">{!! link_to_route('users.followings','フォロー',['id' => Auth::id()],['class' => 'nav-dark']) !!}</li>

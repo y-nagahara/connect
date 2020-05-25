@@ -9,14 +9,15 @@
                 <div>
                     {!! link_to_route('pictures.deteils', $picture->picture_name, ['id' => $picture->id]) !!}
                 </div>
+
+                    
                 <div>
                     @if(Auth::id() == $picture->user_id)
                         {!! Form::open(['route' =>['pictures.destroy',$picture->id],'method' => 'delete']) !!}
-                            {!! Form::submit('Delete',['class' => 'btn btn-danger btn-sm']) !!}
+                            {!! Form::submit('Delete',['class' => 'btn btn-danger w-auto form-inline' ]) !!}
                         {!! Form::close() !!}
                     @endif
-                </div>
-                <div>
+                
                     @include('favorite.favorite_button', ['picture' => $picture])
                 </div>
 
